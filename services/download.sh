@@ -10,7 +10,7 @@ downloadURLS=('https://company-atk.herokuapp.com'
 
 
 outputFiles=('company-home.json'
-'comany-list.json'
+'company-list.json'
 'company-record.json'
 'account-list.json'
 'account-record.json'
