@@ -21,6 +21,11 @@
   ],
   "author": "Jan Devsmith <jdevsmith@example.org>",
   "license": "ISC",
+  "assets": {
+    "diagram": "onboarding-api.png",
+    "alps": "onboardinAPI.yaml",
+    "apiDocs": "onboarding.md"
+  },
   "bugs": {
     "url": "https://github.com/xtbe/onboarding-api/issues"
   },
