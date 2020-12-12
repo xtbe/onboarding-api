@@ -1,86 +1,63 @@
 FORMAT: 1A
-HOST: http://creditcheck.example.org/
+HOST: http://polls.apiblueprint.org/
 
-# Credit Check API
+# Credit Check Responses
 
-Credit Check API for BigCo, Inc
+Public API profile for BigCo's Credit Check service.
 
-## Home [/]
+## Credit Check History [/list]
 
-### Show Home Page [GET]
+Returns a list of past credit rating records.
 
-+ Response 200 (text/plain)
+### List Past Credit Checks [GET]
 
-        HOME
++ Response 200 (application/json)
 
-## Credit Check History List [/history]
-
-### Show Credit Check History List [GET]
-
-+ Response 200 (application/forms+json)
-
-    + Body
-
+        {
+          "creditCheck" : [
             {
-              "home" : [
-                {
-                  "title":"Show Credit Check Recordst",
-                  "forms":[
-                    {"name":"list", "href":"/list"},
-                    {"name":"create", "href":"/list", "method":"post",
-                      "properties":[
-                        {"name":"ratingId","value":"1q12w3e4r5t"}
-                      ]
-                    }
-                  ],
-                  "items":[
-                    {"ratingId" : "1q2w3e4r5t", "href" : "/1q2w3e4r5t", "companyName":"Acme Corp", "ratingValue": "1", "dateRequested": "2020-09-01"}
-                  ]
-                }
-              ]
-            }
-
-
-## Credit Check Form [/history/add]
-
-### Show Add Credit Check Form [GET]
-+ Response 200 (text/html)
-
-        CREATE-FORM
-        
-### Create Credit Check Record [POST]
-
-+ Request (application/x-www-form-urlencoded)
-
-            ratingId=1q2w3e4r5t
-
-+ Response 201 (application/forms+json)
-
-    + Header 
-        
-            Location: history/1q2w3e4r5t
-
-    + Body
-
+              "id" : "123",
+              "companyName" : "Vandelay Industries",
+              "dateRequested" : "2009-06-15T13:45:30",
+              "ratingValue" : "5"
+            },
             {
-              "home" : [
-                {
-                  "title":"RATINGID:1q2w3e4r5t Created",
-                  "forms":[
-                    {"name":"list", "href":"/list"}
-                  ],
-                  "items":[
-                     {"ratingId" : "1q2w3e4r5t", "href" : "/1q2w3e4r5t", "companyName":"Acme Corp", "ratingValue": "1", "dateRequested": "2020-09-01"}
-                  ]
-                }
-              ]
+              "id" : "123",
+              "companyName" : "Vandelay Industries",
+              "dateRequested" : "2009-06-16T12:29:00",
+              "ratingValue" : "4"
+            },
+            {
+              "id" : "456",
+              "companyName" : "Vandelay Industries",
+              "dateRequested" : "2009-06-17T15:14:45",
+              "ratingValue" : "5"
+            },
+            {
+              "id" : "789",
+              "companyName" : "Vandelay Industries",
+              "dateRequested" : "2009-06-21T08:35:15",
+              "ratingValue" : "6"
             }
+          ]
+        }
 
-# Credit Check Record [/history/1q2w3e4r5t]
+## Credit Check Item [/list/123]
 
-### Show Credit Check Record [GET]
+Returns a list of past credit rating records.
 
-+ Response 200 (text/plain)
+### Single Credit Checks [GET]
 
-        CREDIT-CHECK-ID:1q2w3e4r5t
++ Response 200 (application/json)
+
+        {
+          "creditCheck" : [
+            {
+              "id" : "123",
+              "companyName" : "Vandelay Industries",
+              "dateRequested" : "2009-06-15T13:45:30",
+              "ratingValue" : "5"
+            }
+          ]
+        }
 
